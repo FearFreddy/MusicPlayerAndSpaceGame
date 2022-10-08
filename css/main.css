@@ -1,0 +1,491 @@
+html{
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 20%,rgba(0,0,0,0.5) 50%), url(../img/space1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#notification {
+  z-index:50;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:3%;
+  height: 10%;
+  right:25%;
+  width: 50%;
+  color: white;
+  font-size: 3em;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  display: none;
+}
+
+#everythingContainer {
+  height: 100%;
+  width: 100%;
+  display:none;
+}
+
+#naviLeft, #naviRight {
+  top:30%;
+  z-index: 10;
+  height: 40%;
+  width: 6%;
+  position: fixed;
+  background-color: rgba(0,0,0,0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#naviRight {
+  right:0;
+  border-left: 1px solid white;
+}
+
+#naviLeft {
+  border-right: 1px solid white;
+}
+
+#naviLeft:hover, #naviRight:hover {
+  background-color: rgba(255,255,255,0.05);
+  cursor: pointer;
+}
+
+.naviSign {
+  font-size: 3em;
+  font-style: bold;
+  color: white;
+}
+
+#helpButton {
+  z-index: 21;
+  margin:0.5em;
+  padding: 1em;
+  position:fixed;
+  left:0;
+  top: 1%;
+  font-size:1.2em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#helpButton:hover {
+  background-color: rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+#nextSong, #previousSong, #pauseSong {
+  z-index: 40;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+#musicControlDiv {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  bottom: 1%;
+  right: 0%;
+  z-index: 40;
+}
+
+#nextSong:hover, #previousSong:hover, #pauseSong:hover {
+  cursor:pointer;
+}
+
+.icons {
+  width: 30px;
+}
+
+#shuffleButton {
+  z-index: 21;
+  margin:0.5em;
+  padding: 1em;
+  position:fixed;
+  left:0;
+  bottom: 1%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#shuffleImg {
+  height: 100%;
+  width: 100%;
+}
+
+#shuffleButton:hover {
+  background-color: rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+#dropZone{
+  z-index: 20;
+  margin: 0;
+  padding:0;
+  position: fixed;
+  bottom:0;
+  left: 35%;
+  width: 30%;
+  right:0;
+  height: 10%;
+  font-size: 1.4em;
+  border-top: 1px dotted white;
+  border-left: 1px dotted white;
+  border-right: 1px dotted white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#fileButton, #fileButtonMobile {
+  font-size: 1em;
+  color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid white;
+}
+#fileButtonMobile {
+	display: none;
+}
+
+#fileButton:hover {
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.2);
+}
+
+#upperRightButton {
+  z-index: 21;
+  margin:0.5em;
+  padding: 1em;
+  position:fixed;
+  right:0;
+  top: 1%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#upperRightButton:hover {
+  background-color: rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+#contentContainer {
+  z-index: 18;
+  position: absolute;
+  height: 100%;
+  width: 88%;
+  left: 6%;
+}
+
+.articleContainer {
+  position: absolute; width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.articles {
+  margin: 0 auto;
+  display: none;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 8;
+}
+
+#canvasContainer {
+  display: flex;
+}
+
+#playlistWindow {
+  display: none;
+  z-index: 70;
+  border-radius: 5px;
+  position: fixed;
+  width: 70%;
+  right:15%;
+  height: 50%;
+  top: 25%;
+  color: white;
+  font-size: 1.5em;
+  background-color: black;
+  opacity: 0.6;
+  border: 1px solid white;
+  overflow-y: auto;
+}
+
+#playlist {
+  margin-left: 40px;
+  padding: 0;
+}
+
+#playlistWindow > ul > li {
+  z-index: 71;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#playlistWindow > ul > li:hover {
+  background-color:rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+#helpWindow {
+  display: none;
+  z-index: 70;
+  border-radius: 0.5em;
+  position: fixed;
+  width: 70%;
+  right:15%;
+  height: 70%;
+  top: 15%;
+  color: white;
+  font-size: 1.5em;
+  background-color: black;
+  opacity: 0.7;
+  border-radius: 5px;
+  border: 1px solid white;
+  overflow-y: auto;
+}
+
+#helpWindow > p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#popUpMenu {
+  z-index:72;
+  display: none;
+  width: 100px;
+  height: 120px;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0,0,0,0.7);
+  font-size: 1.3em;
+}
+
+#popUpMenu > ul {
+  list-style-type: none;
+  padding:0;
+  margin:0;
+}
+
+#popUpMenu > ul > li {
+  margin: 2px;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid white;
+}
+
+
+#popUpMenu > ul > li:hover {
+  border-radius: 5px;
+  background-color:rgba(255,255,255,0.3);
+  cursor:pointer;
+}
+
+@keyframes Ani1 {
+    from {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(30deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes Ani2 {
+    from {
+      width: 8%;
+    }
+    50% {
+      width: 92%;
+    }
+    to {
+      width: 8%;
+    }
+}
+
+@keyframes Ani3 {
+    from {
+      opacity: 1;
+    }
+    30%{
+      opacity: 0.2;
+    }
+    70% {
+      opacity: 0;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes Ani4 {
+    from {
+      opacity: 0;
+    }
+    80%{
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes Ani5 {
+    from {
+      opacity: 1;
+    }
+    30%{
+      opacity: 0.9;
+    }
+    70% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
+@keyframes Ani6 {
+    from {
+        opacity: 0;
+        margin-top: 100px;
+    }
+    50% {
+      opacity: 0.2;
+        margin-top: 30px;
+    }
+    to {
+      opacity: 0.5;
+        margin-top: 0;
+    }
+}
+/*************** MEDIA SCREENS ****************/
+
+
+@media screen and (max-width:1150px) {
+
+  .naviSign {
+    font-size: 3em;
+  }
+
+  #dropZone, #fileButton {
+    font-size: 0.8em;
+  }
+
+}
+
+@media screen and (max-width:650px) {
+
+  .naviSign {
+    font-size: 1em;
+  }
+
+  #notification {
+    font-size: 1em;
+  }
+  #fileButton {
+  	display: none;
+  }
+  #fileButtonMobile  {
+  	display: block;
+    font-size: 1.5em;
+  }
+
+  #nextSong, #previousSong, #pauseSong {
+    font-size: 1.2em;
+    padding: 1em 0.2em;
+  }
+
+  #dropZone {
+  	border: none;
+  	left: 80px;
+  	padding-bottom: 10px;
+  }
+
+  #dropZoneP {
+  	display: none;
+  }
+
+  #playlistWindow, #helpWindow {
+    font-size: 0.8em;
+  }
+
+  #playlist {
+  margin-left: 20px;
+}
+
+
+}
+
+
+@media screen and (max-height: 450px) {
+
+  .naviSign {
+    font-size: 1em;
+  }
+
+  #notification {
+    font-size: 1em;
+  }
+
+   #dropZone, #fileButton  {
+    font-size: 0.8em;
+  }
+
+  #nextSong, #previousSong, #pauseSong {
+    font-size: 1.2em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+  }
+
+  #pauseSong {
+    padding-top: 5px;
+  }
+
+  #playlistWindow, #helpWindow {
+    font-size: 0.8em;
+  }
+
+  #playlist {
+    margin-left: 20px;
+  }
+
+}

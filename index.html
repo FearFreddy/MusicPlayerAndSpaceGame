@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script language="javascript" type="text/javascript" src="js/p5.js"></script>
+<!--   <script language="javascript" type="text/javascript" src="js/p5.min.js"></script> -->
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <script language="javascript" src="js/p5.dom.js"></script>
+  <script language="javascript" src="js/p5.sound.js"></script>
+  <script language="javascript" type="text/javascript" src="js/sketchMain.js"></script>
+  <script language="javascript" type="text/javascript" src="js/sketchMusicPlayer.js"></script>
+  <script language="javascript" type="text/javascript" src="js/sketchSoundManipulation.js"></script>
+  <script language="javascript" type="text/javascript" src="js/sketchGame.js"></script>
+
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+<div id="notification">
+  <p> Try again </p>
+</div>
+
+<div id="everythingContainer">
+
+      <div id="dropZone">
+          <p id="dropZoneP" style="padding-right: 5px">Drop your songs or ..</p>
+          <input type="file" id="selectedFile" style="display: none;"/>
+          <input type="button" value="browse" id="fileButton" onclick="document.getElementById('selectedFile').click();" />
+          <input type="button" value="Upload" id="fileButtonMobile" onclick="document.getElementById('selectedFile').click();" />
+      </div>
+
+
+
+  <!-- NAVIGATION right and left -->
+
+      <div id="naviLeft">
+          <p class="naviSign"> « </p>
+      </div>
+
+      <div id="naviRight">
+          <p class="naviSign"> » </p>
+      </div>
+
+  <!--Fixed Help Image & Button-->
+      <div id="helpButton">
+       <img src="img/help.png" class="icons"/>
+      </div>
+
+      <div id="upperRightButton">
+        <img src="img/burger.png" class="icons"/>
+      </div>
+
+      <div id="shuffleButton">
+          <img src="img/shuffle.png" class="icons" id="shuffleImg" />
+      </div>
+
+      <div id="musicControlDiv">
+		  <img id="previousSong" src="img/previous.png" class="icons" id="shuffleImg" />
+		  <img id="pauseSong" src="img/play.png" class="icons" id="shuffleImg" />
+		  <img id="nextSong" src="img/next.png" class="icons" id="shuffleImg" />
+      </div>
+
+      <div id="popUpMenu">
+          <ul>
+              <li id="play">Play</li>
+              
+              <li id="delete">Delete</li>
+
+              <li id="close">Close</li>
+          </ul>
+      </div>
+
+  <!--Container for all the content INSIDE the navigations -->
+
+    <div id="contentContainer">
+
+  <!-- Container for the different articles, only one is displayed -->
+
+      <div class="articleContainer" id="container">
+
+
+  <!-- Playlist and Help window -->
+
+        <article id="playlistWindow" class="articles">
+          <ul id="playlist">
+            <li id="emptyElement">Nothing in here yet, drop your songs below</li>
+          </ul>
+        </article>
+
+        <article id="helpWindow" class="articles">
+          <p id="helpWindowText">
+            Hallo, das ist eine Seite um Spaß zu haben mit Musik.
+          </p>
+        </article>
+
+
+  <!-- Articles who then carry the P5 Canvases -->
+
+        <article id="canvasContainer" class="articles">
+        </article>
+
+        <article id="canvasContainer2" class="articles">
+        </article>
+
+        <article id="canvasContainer3" class="articles">
+        </article>
+
+      </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
